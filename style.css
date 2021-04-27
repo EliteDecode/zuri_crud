@@ -1,0 +1,47 @@
+body{
+    background-color: azure;
+}
+
+
+.reg_section{
+    border:1px solid grey;
+    height:500px;
+    width: 50%;
+    margin: 0% 25%;
+    background-color: #FFF;
+}
+
+.reg_section > h1{
+    text-align: center;
+    font-family: sans-serif;
+}
+
+
+form{
+    width: 50%;
+    margin:0% 25%;
+
+}
+
+form > label{
+    font-size: 15px;
+    margin-bottom: 5%;
+    text-transform: uppercase;
+    font-weight: bolder;
+    width: 100%;
+}
+
+form > input{
+    outline: none;
+    width: 100%;
+    padding: 3%;
+    margin-bottom: 5%;
+    margin-top: 2%;
+}
+
+form > button{
+    width: 60%;
+    margin:0% 20%;
+    padding:3%;
+}
+
