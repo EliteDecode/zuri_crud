@@ -63,7 +63,9 @@
 <button type="submit" name="submit">LOGIN</button><br><br>
 
 <span>FORGOT PASSWORD?</span>
-<a href="forgotPw.php">Click here</a>
+<a href="forgotPw.php">CLICK HERE</a> <br>
+<a href="index.php">SIGN UP</a>
+
 
 
 </form>

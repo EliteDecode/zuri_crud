@@ -1,14 +1,12 @@
-
-
 <?php
-  session_start();
+
+
+  if(isset($_SESSION['loggedIn'])){
+    header("location:Dashboard.php");
+}
+
+
 ?>
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +17,8 @@
     <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
+
+<?php include_once 'processCrud.php' ;?>
 
 <section class="dashboard">
 
@@ -63,27 +63,8 @@
     </p>
 </div>
 
+         
 <?php
-  $course = "";
-  $track = "";
-?>
-
-     <form action="processCrud.php" method= "POST">
-         <label for="course"></label>
-         <input
-          value = "<?php echo  $course ?>"
-          type="text" placeholder="ADD COURSE" name="course">
-
-
-         <input
-         value = "<?php echo $track; ?>"
-          type="text" placeholder="ADD COURSE TRACK" name="track">
-         
-
-         <button type="submit" name="add">ADD COURSE</button>
-
-         
-     <?php
      
      $servername = "localhost";
      $username = "root";
@@ -114,29 +95,38 @@
          </tr>
       </thead>
 
-      <?php while($row = $result->fetch_assoc()):
-       
-        
-    ?>
+ <?php while($row = $result->fetch_assoc()): ?>
       <tr>
          <td> <?php echo $row['course'];?>  </td>
          <td> <?php echo $row['track'];?></td>
-         <td><a href="processCrud.php?edit=<?php echo $row['id']; ?>" class ="edit_btn">Edit</a>
+         <td><a href="Dashboard.php?edit=<?php echo $row['id']; ?>" class ="edit_btn">Edit</a>
         <a href="processCrud.php?delete=<?php echo $row['id']; ?>" class="delete_btn">delete</a></td>
       </tr>
       <?php endwhile; ?>
  </table>
-<?php
-     function pre_r($array){
-         echo '<post>';
-         print_r ($array);
 
-         echo '</post>';
-     }
-?>
+<form action="processCrud.php" method= "POST">
+
+      <input type="hidden" name="id" value = "<?php echo $id ?>">
+         <label for="course"></label>
+         <input
+          value = "<?php echo  $course ?>"
+          type="text" placeholder="ADD COURSE" name="course">
+
+
+         <input
+         value = "<?php echo $track; ?>"
+          type="text" placeholder="ADD COURSE TRACK" name="track">
+         
+         <?php if($update == true):?>
+         <button type="submit" name="update">UPDATE COURSE</button>
+         <?php else: ?>
+        <button type="submit" name="add">ADD COURSE</button>
+        <?php endif ?>
+
+
 
      </form>
-
 
  </div>
   

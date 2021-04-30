@@ -36,21 +36,26 @@ $email = $_POST['email'];
 
     if($error > 0){
         $_SESSION["error"] = "COMPLETE YOUR DETAILS";
-        header("location:index.php");
+        header("location:login.php");
     }else{
 
-    $sql = "SELECT email FROM users WHERE email = '$email' and password = '$password'";
+    $sql = "SELECT * FROM users WHERE email = '$email' and password = '$password'";
     $result = mysqli_query($conn, $sql);
+   
 
     if(mysqli_num_rows($result) === 1){
+      
         $_SESSION['loggedIn'] = $result;
         header("location:Dashboard.php");
+        
     }else{
-        $_SESSION["error"] = "INVALID USER DETAILS";
+        $_SESSION["error"] = "INVALID USER DETAILS PLEASE SIGN UP";
         header("location:login.php");
        
       die();
     }
+
+  
 
 }
 ?>

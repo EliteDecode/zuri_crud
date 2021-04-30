@@ -2,9 +2,6 @@
 
 session_start();
 
-if(isset($_SESSION['loggedIn'])  && !empty($_SESSION['loggedIn'])){
-    header("location:home.php");
-}
 
 ?>
 

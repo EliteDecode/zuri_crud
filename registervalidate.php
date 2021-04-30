@@ -4,25 +4,7 @@
 
 session_start();
 
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "zuri_users";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-
-
-
-
-//start session
+include('connections.php');
 
 
 $first_name = $_POST['firstname'];
